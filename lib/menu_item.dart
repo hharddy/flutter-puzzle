@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_puzzle/entity/main_menu_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'custom_expan.dart';
+import 'util/custom_expan.dart';
 
-class ItemMenu2 extends StatelessWidget {
+class MenuItem extends StatelessWidget {
   MainMenu? menu;
   String? empty = "";
   int? is_click_icon = 0;
 
-  ItemMenu2({this.menu});
+  MenuItem({this.menu});
 
 
   List<Widget> SubMenu(){
@@ -48,7 +48,7 @@ class ItemMenu2 extends StatelessWidget {
         child: Row(
           children: [
 
-          Container(height: 25,
+          Container(height: 25,width: 25,
 
           child: SvgPicture.asset(
               menu!.icon!,

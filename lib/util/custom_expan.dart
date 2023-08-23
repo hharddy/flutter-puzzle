@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'entity/main_menu_model.dart';
+import '../entity/main_menu_model.dart';
 
 class CustomExpansionTile extends StatefulWidget {
   final bool initiallyExpanded;

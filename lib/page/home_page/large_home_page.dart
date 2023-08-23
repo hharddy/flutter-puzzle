@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_puzzle/expan_custom.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../constant/palette.dart';
 import '../../entity/main_menu_model.dart';
+import '../../menu_item.dart';
+import '../../util/menu_list.dart';
 class LargeHomePage extends StatefulWidget {
   const LargeHomePage({Key? key}) : super(key: key);
 
@@ -13,49 +14,7 @@ class LargeHomePage extends StatefulWidget {
 class _LargeHomePageState extends State<LargeHomePage> {
 
   List<String> mlist = ['ssds','ssdgfgg'];
-  List dataList = [
-  {
-  "title": "Available ",
-  "icon": '/icon/dice.svg',
-  "subMenu": [
-    {"title": "Puzzle",
-      "icon": '/icon/puzzle.svg'},
 
-  ]
-},
-    {
-      "title": "Soon ",
-      "icon": '/icon/atari.svg',
-      "subMenu": [
-        {"title": "Baccarat",
-          "icon": '/icon/card.svg'},
-
-        {"title": "Blackjack",
-          "icon": '/icon/among.svg'},
-
-        {"title": "Craps",
-          "icon": '/icon/compass.svg'},
-
-        {"title": "Playstation",
-          "icon": '/icon/controller.svg'},
-
-        {"title": "Dart",
-          "icon": '/icon/dart.svg'}
-      ]
-    },
-    {
-      "title": "Premium ",
-      "icon": '/icon/dommino.svg',
-      "subMenu": [
-        {"title": "Cubes",
-          "icon": '/icon/rocket.svg'},
-
-        {"title": "Shield",
-          "icon": '/icon/sword.svg'},
-
-      ]
-    },
-    ];
   List<MainMenu> menu_list = [];
   @override
   void initState() {
@@ -85,7 +44,7 @@ class _LargeHomePageState extends State<LargeHomePage> {
             child: ListView.builder(
               itemCount: menu_list.length,
               itemBuilder: (context, index) {
-                return ItemMenu2(menu: menu_list[index],);
+                return MenuItem(menu: menu_list[index],);
               },
             ),
           ),
