@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_puzzle/page/home_page/large_home_page.dart';
 import 'package:flutter_puzzle/page/home_page/small_home_page.dart';
 
-import 'constant/palette.dart';
+import 'constant/color/palette.dart';
 
 void main() {
   runApp(const MyApp());

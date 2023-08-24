@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_puzzle/constant/number/radius_numbers.dart';
 
 import '../entity/main_menu_model.dart';
 
@@ -57,7 +58,7 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> {
           margin: EdgeInsets.symmetric(vertical: 6),
           decoration: BoxDecoration(
             color: Color(0xff22284d),
-            borderRadius: BorderRadius.circular(6)
+            borderRadius: BorderRadius.circular(main_radius)
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

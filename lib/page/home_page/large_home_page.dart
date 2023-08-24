@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../constant/palette.dart';
+import '../../constant/color/palette.dart';
 import '../../entity/main_menu_model.dart';
 import '../../menu_item.dart';
 import '../../util/menu_list.dart';
+import '../../widget/game_setting.dart';
 class LargeHomePage extends StatefulWidget {
   const LargeHomePage({Key? key}) : super(key: key);
 
@@ -27,7 +28,9 @@ class _LargeHomePageState extends State<LargeHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Container(width: 100,height: 50,
           //
@@ -38,7 +41,7 @@ class _LargeHomePageState extends State<LargeHomePage> {
           Container(
             height: double.infinity,
             //height: 200,
-            width: MediaQuery.of(context).size.width*0.2,
+            width: MediaQuery.of(context).size.width*0.15,
             padding: EdgeInsets.symmetric(horizontal: 7,vertical: 15),
             color: Palette.secondary,
             child: ListView.builder(
@@ -48,6 +51,7 @@ class _LargeHomePageState extends State<LargeHomePage> {
               },
             ),
           ),
+          GameSetting()
 
         ],
       ),
