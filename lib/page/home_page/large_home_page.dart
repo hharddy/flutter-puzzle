@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_puzzle/widget/game_panel.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../constant/color/palette.dart';
 import '../../entity/main_menu_model.dart';
@@ -51,7 +52,8 @@ class _LargeHomePageState extends State<LargeHomePage> {
               },
             ),
           ),
-          GameSetting()
+          GameSetting(),
+          Expanded(child: GamePanel())
 
         ],
       ),

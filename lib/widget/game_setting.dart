@@ -21,7 +21,15 @@ class GameSetting extends StatelessWidget {
           width: MediaQuery.of(context).size.width*0.30,
           decoration: BoxDecoration(
             color: Palette.setting_panel,
-            borderRadius: BorderRadius.circular(10)
+            borderRadius: BorderRadius.circular(main_radius),
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(4,4),
+                    blurRadius: 7,
+                    spreadRadius: 0,
+                    color: Palette.secondary.withOpacity(0.1)
+                )
+              ]
           ),
           child: ListView(
             shrinkWrap: true,
