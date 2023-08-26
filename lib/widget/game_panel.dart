@@ -22,9 +22,9 @@ class _GamePanelState extends State<GamePanel> {
     GameModel(id: 4,choosed: false),
     GameModel(id: 5,choosed: false),
     GameModel(id: 6,choosed: false),
-    GameModel(id: 7,choosed: false),
+    GameModel(id: 7,choosed: false,pieces: PIECES.GEM),
     GameModel(id: 8,choosed: false),
-    GameModel(id: 9,choosed: false),
+    GameModel(id: 9,choosed: false,pieces: PIECES.BOMB),
     GameModel(id: 10,choosed: false),
     GameModel(id: 11,choosed: false),
     GameModel(id: 12,choosed: false),
@@ -79,9 +79,14 @@ class _GamePanelState extends State<GamePanel> {
             margin: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
             height: 400,
             child: Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
+                /*
+                bomb count
+                 */
                 Padding(
-                  padding: const EdgeInsets.all(9.0),
+                  padding: const EdgeInsets.only(left: 12.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -91,15 +96,18 @@ class _GamePanelState extends State<GamePanel> {
                         child: Image.asset('/icon/bomb2.png',fit: BoxFit.fill,),
                       ),
                       SizedBox(height: 10,),
-                      Text("2",style: TextStyle(color: Colors.white),),
+                      Text("2",style: TextStyle(color: Colors.white,fontSize: 15),),
                     ],
                   ),
                 ),
+                /*
+                game panel
+                 */
                 Expanded(
                   child: Container(
                   //  height: 400,
                    // width: 200,
-                    color: Colors.red,
+             //       color: Colors.red,
                     child: ListView.builder(
                       itemCount: (game_peices.length + 3) ~/ 4, // Calculate the number of rows needed
                       itemBuilder: (context, rowIndex) {
@@ -127,7 +135,25 @@ class _GamePanelState extends State<GamePanel> {
                     ),
                   ),
                 ),
-                Text("dddddddddddd",style: TextStyle(color: Colors.white),),
+
+                /*
+                Gem count
+                 */
+                Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 35,
+                        height: 35,
+                        child: Image.asset('/icon/gem.png',fit: BoxFit.fill,),
+                      ),
+                      SizedBox(height: 10,),
+                      Text("2",style: TextStyle(color: Colors.white,fontSize: 15),),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

@@ -3,8 +3,10 @@ class GameModel{
   PIECES? pieces;
   bool? choosed;
 
-  GameModel({this.id,  this.choosed}){
-    this.pieces = PIECES.INIT;
+  GameModel({this.id,  this.choosed,this.pieces}){
+    if(this.pieces==null){
+      this.pieces = PIECES.INIT;
+    }
   }
 
 }
