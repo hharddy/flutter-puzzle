@@ -107,7 +107,7 @@ class GameSetting extends StatelessWidget {
                     )
                   ]
                 ),
-                child:NumberInput(icon_path: '/icon/bomb3.png',textEditingController: gems_controller),
+                child:NumberInput(icon_path: '/icon/bomb3.png',textEditingController: bombs_controller),
               ),
 
               /*

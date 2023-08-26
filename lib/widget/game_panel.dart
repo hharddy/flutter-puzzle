@@ -80,16 +80,20 @@ class _GamePanelState extends State<GamePanel> {
             height: 400,
             child: Row(
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 45,
-                      height: 45,
-                      child: Image.asset('/icon/bomb2.png',fit: BoxFit.fill,),
-                    ),
-                    Text("Bomb",style: TextStyle(color: Colors.white),),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.all(9.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 35,
+                        height: 35,
+                        child: Image.asset('/icon/bomb2.png',fit: BoxFit.fill,),
+                      ),
+                      SizedBox(height: 10,),
+                      Text("2",style: TextStyle(color: Colors.white),),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: Container(
