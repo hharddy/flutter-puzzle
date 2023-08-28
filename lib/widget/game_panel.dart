@@ -4,6 +4,8 @@ import 'package:flutter_puzzle/constant/number/radius_numbers.dart';
 import 'package:flutter_puzzle/entity/game_model.dart';
 import 'package:flutter_puzzle/item/game_item.dart';
 
+import '../util/puzzle_data.dart';
+
 class GamePanel extends StatefulWidget {
   const GamePanel({Key? key}) : super(key: key);
 
@@ -14,33 +16,7 @@ class GamePanel extends StatefulWidget {
 class _GamePanelState extends State<GamePanel> {
 
 
-  List<GameModel> game_peices = [
 
-    GameModel(id: 1,choosed: false),
-    GameModel(id: 2,choosed: false),
-    GameModel(id: 3,choosed: false),
-    GameModel(id: 4,choosed: false),
-    GameModel(id: 5,choosed: false),
-    GameModel(id: 6,choosed: false),
-    GameModel(id: 7,choosed: false,pieces: PIECES.GEM),
-    GameModel(id: 8,choosed: false),
-    GameModel(id: 9,choosed: false,pieces: PIECES.BOMB),
-    GameModel(id: 10,choosed: false),
-    GameModel(id: 11,choosed: false),
-    GameModel(id: 12,choosed: false),
-    GameModel(id: 13,choosed: false),
-    GameModel(id: 14,choosed: false),
-    GameModel(id: 15,choosed: false),
-    GameModel(id: 16,choosed: false),
-    GameModel(id: 17,choosed: false),
-    GameModel(id: 18,choosed: false),
-    GameModel(id: 19,choosed: false),
-    GameModel(id: 20,choosed: false),
-    GameModel(id: 21,choosed: false),
-    GameModel(id: 22,choosed: false),
-    GameModel(id: 23,choosed: false),
-    GameModel(id: 24,choosed: false),
-  ];
   double _height = 450;
   @override
   Widget build(BuildContext context) {
@@ -109,11 +85,11 @@ class _GamePanelState extends State<GamePanel> {
                    // width: 200,
              //       color: Colors.red,
                     child: ListView.builder(
-                      itemCount: (game_peices.length + 3) ~/ 4, // Calculate the number of rows needed
+                      itemCount: (Puzzle_data.game_peices.length + 3) ~/ 4, // Calculate the number of rows needed
                       itemBuilder: (context, rowIndex) {
                         int startingIndex = rowIndex * 4;
                         int endingIndex = startingIndex + 3;
-                        endingIndex = endingIndex < game_peices.length ? endingIndex : game_peices.length - 1;
+                        endingIndex = endingIndex < Puzzle_data.game_peices.length ? endingIndex : Puzzle_data.game_peices.length - 1;
 
                         List<Widget> rowItems = [];
                         for (int index = startingIndex; index <= endingIndex; index++) {
@@ -122,7 +98,7 @@ class _GamePanelState extends State<GamePanel> {
                             //    padding: EdgeInsets.all(8.0), // Add padding between items
                             Padding(
                               padding: const EdgeInsets.all(5.0),
-                              child: GameItem(game_peices[index]),
+                              child: GameItem(Puzzle_data.game_peices[index]),
                             ),
 
                           );

@@ -37,6 +37,7 @@ class GameItem extends StatelessWidget {
       child:InkWell(
         onTap: (){
 
+          print("${gameModel.id} - ${gameModel.pieces}");
         },
         child:  () {
           switch(gameModel.pieces!){
