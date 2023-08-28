@@ -34,12 +34,8 @@ class GameItem extends StatelessWidget {
             )
           ]
       ),
-      child:InkWell(
-        onTap: (){
-
-          print("${gameModel.id} - ${gameModel.pieces}");
-        },
-        child:  () {
+      child:
+        () {
           switch(gameModel.pieces!){
             case PIECES.NOTHING: return Image.asset('/icon/bomb3.png',fit: BoxFit.fill,);
             case PIECES.INIT: return Image.asset('/icon/atyscode.png',fit: BoxFit.fill,);
@@ -47,7 +43,7 @@ class GameItem extends StatelessWidget {
             case PIECES.GEM: return Image.asset('/icon/gem.png',fit: BoxFit.fill,);
           }
         }(),
-      ),
+
     );
   }
 }
