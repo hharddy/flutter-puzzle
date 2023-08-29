@@ -7,8 +7,14 @@ class PuzzleProvider extends ChangeNotifier{
 
   PuzzleProvider(this.game_peices);
 
-  void UpdateGame(var index,PIECES pieces){
+  void SetGamePieces(var index,PIECES pieces){
+    //print("Update game $index");
     game_peices[index].pieces = pieces;
+    notifyListeners();
+  }
+  void UpdateGame(var index){
+    print("Update game $index");
+    game_peices[index].choosed = true;
     notifyListeners();
   }
 }

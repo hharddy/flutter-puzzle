@@ -40,13 +40,13 @@ class _GamePanelState extends State<GamePanel> {
       print("init");
       PuzzleProvider puzzleProvider = Provider.of<PuzzleProvider>(context,listen: false);
       print("init2");
-      puzzleProvider.UpdateGame(1, PIECES.GEM);
+      //puzzleProvider.UpdateGame(1, PIECES.GEM);
       for(int i=0;i<game_setting.length;i++){
         if(i>1){
-          puzzleProvider.UpdateGame(game_setting[i], PIECES.GEM);
+          puzzleProvider.SetGamePieces(game_setting[i], PIECES.GEM);
           print("Item $i Gem");
         }else{
-          puzzleProvider.UpdateGame(game_setting[i], PIECES.BOMB);
+          puzzleProvider.SetGamePieces(game_setting[i], PIECES.BOMB);
           print("Item $i Bomb");
 
         }
@@ -135,7 +135,7 @@ class _GamePanelState extends State<GamePanel> {
                               child: InkWell(
                                   onTap: () {
 
-                                    value.UpdateGame(index, PIECES.BOMB);
+                                    value.UpdateGame(index);
                                   },
                                   child: GameItem(value.game_peices[index])),
                             ),

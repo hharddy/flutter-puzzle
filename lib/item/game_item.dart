@@ -13,6 +13,20 @@ class GameItem extends StatelessWidget {
 
   }
 
+  Widget IsSelected(){
+    if(gameModel.choosed==true){
+        return  () {
+        switch(gameModel.pieces!){
+          case PIECES.NOTHING: return Image.asset('/icon/bomb3.png',fit: BoxFit.fill,);
+          case PIECES.INIT: return Image.asset('/icon/question.png',fit: BoxFit.fill,);
+          case PIECES.BOMB: return Image.asset('/icon/bomb2.png',fit: BoxFit.fill,);
+          case PIECES.GEM: return Image.asset('/icon/gem.png',fit: BoxFit.fill,);
+        }
+      }();
+    }else{
+      return Image.asset('/icon/question.png',fit: BoxFit.fill,);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,15 +48,7 @@ class GameItem extends StatelessWidget {
             )
           ]
       ),
-      child:
-        () {
-          switch(gameModel.pieces!){
-            case PIECES.NOTHING: return Image.asset('/icon/bomb3.png',fit: BoxFit.fill,);
-            case PIECES.INIT: return Image.asset('/icon/atyscode.png',fit: BoxFit.fill,);
-            case PIECES.BOMB: return Image.asset('/icon/bomb2.png',fit: BoxFit.fill,);
-            case PIECES.GEM: return Image.asset('/icon/gem.png',fit: BoxFit.fill,);
-          }
-        }(),
+      child: IsSelected(),
 
     );
   }

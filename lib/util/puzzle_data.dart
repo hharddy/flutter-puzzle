@@ -5,7 +5,7 @@ class Puzzle_data{
 
 static  List<GameModel> game_peices = [
 
-    GameModel(id: 1,choosed: false),
+    GameModel(id: 1,choosed: false,pieces: PIECES.GEM),
     GameModel(id: 2,choosed: false),
     GameModel(id: 3,choosed: false),
     GameModel(id: 4,choosed: false),
