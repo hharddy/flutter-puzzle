@@ -6,8 +6,10 @@ import 'package:flutter_puzzle/item/game_item.dart';
 import 'package:flutter_puzzle/provider/puzzle_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../constant/string/const_string.dart';
 import '../util/puzzle_data.dart';
 import '../util/random_numbers.dart';
+import '../util/snack_bar.dart';
 
 class GamePanel extends StatefulWidget {
   const GamePanel({Key? key}) : super(key: key);
@@ -134,8 +136,12 @@ class _GamePanelState extends State<GamePanel> {
                               padding: const EdgeInsets.all(5.0),
                               child: InkWell(
                                   onTap: () {
+                                    if(value.isGameReady==false){
+                                      ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
 
-                                    value.UpdateGame(index);
+                                    }else value.UpdateGame(index);
+
+
                                   },
                                   child: GameItem(value.game_peices[index])),
                             ),

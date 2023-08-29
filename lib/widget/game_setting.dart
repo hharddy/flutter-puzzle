@@ -3,6 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_puzzle/constant/color/palette.dart';
 import 'package:flutter_puzzle/constant/number/radius_numbers.dart';
 import 'package:flutter_puzzle/widget/number_input.dart';
+import 'package:provider/provider.dart';
+
+import '../constant/string/const_string.dart';
+import '../provider/puzzle_provider.dart';
+import '../util/snack_bar.dart';
 class GameSetting extends StatelessWidget {
 
 
@@ -119,8 +124,16 @@ class GameSetting extends StatelessWidget {
                     backgroundColor: Palette.button_blue,
                     padding: EdgeInsets.symmetric(vertical: 20)
                   ),
-                  onPressed: () {
 
+                  onPressed: () {
+                    if(bombs_controller.text.isNotEmpty && gems_controller.text.isNotEmpty){
+                      Provider.of<PuzzleProvider>(context,listen: false).ChangeGameStatu(true,
+                          bomb_count: int.parse(bombs_controller.text),
+                          gem_count: int.parse(gems_controller.text)
+                      );
+                    }else{
+                      ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.controller_is_empty));
+                    }
               }, child: Text('Start game',style: TextStyle(color: Colors.white),))
 
             ],
