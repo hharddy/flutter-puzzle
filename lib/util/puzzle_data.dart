@@ -5,15 +5,15 @@ class Puzzle_data{
 
 static  List<GameModel> game_peices = [
 
-    GameModel(id: 1,choosed: false,pieces: PIECES.GEM),
+    GameModel(id: 1,choosed: false),
     GameModel(id: 2,choosed: false),
     GameModel(id: 3,choosed: false),
     GameModel(id: 4,choosed: false),
     GameModel(id: 5,choosed: false),
     GameModel(id: 6,choosed: false),
-    GameModel(id: 7,choosed: false,pieces: PIECES.GEM),
+    GameModel(id: 7,choosed: false),
     GameModel(id: 8,choosed: false),
-    GameModel(id: 9,choosed: false,pieces: PIECES.BOMB),
+    GameModel(id: 9,choosed: false),
     GameModel(id: 10,choosed: false),
     GameModel(id: 11,choosed: false),
     GameModel(id: 12,choosed: false),

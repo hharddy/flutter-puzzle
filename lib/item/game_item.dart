@@ -6,9 +6,10 @@ import 'package:flutter_puzzle/entity/game_model.dart';
 class GameItem extends StatelessWidget {
 
   GameModel gameModel;
+  int index;
 
 
-  GameItem(this.gameModel){
+  GameItem(this.gameModel,this.index){
 
 
   }
@@ -24,7 +25,8 @@ class GameItem extends StatelessWidget {
         }
       }();
     }else{
-      return Image.asset('/icon/question.png',fit: BoxFit.fill,);
+    //  return Image.asset('/icon/question.png',fit: BoxFit.fill,);
+      return Text('$index',textAlign: TextAlign.center,);
     }
   }
   @override

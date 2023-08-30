@@ -36,23 +36,23 @@ class _GamePanelState extends State<GamePanel> {
   void  initStates() {
 
     print("Did change method call");
-    game_setting=[1,2,3,4];
+   // game_setting=[1,2,3,4];
    // game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
     Future.delayed(Duration.zero, (){
       print("init");
       PuzzleProvider puzzleProvider = Provider.of<PuzzleProvider>(context,listen: false);
       print("init2");
       //puzzleProvider.UpdateGame(1, PIECES.GEM);
-      for(int i=0;i<game_setting.length;i++){
-        if(i>1){
-          puzzleProvider.SetGamePieces(game_setting[i], PIECES.GEM);
-          print("Item $i Gem");
-        }else{
-          puzzleProvider.SetGamePieces(game_setting[i], PIECES.BOMB);
-          print("Item $i Bomb");
-
-        }
-      }
+      // for(int i=0;i<game_setting.length;i++){
+      //   if(i>1){
+      //     puzzleProvider.SetGamePieces(game_setting[i], PIECES.GEM);
+      //     print("Item $i Gem");
+      //   }else{
+      //     puzzleProvider.SetGamePieces(game_setting[i], PIECES.BOMB);
+      //     print("Item $i Bomb");
+      //
+      //   }
+      // }
       print("init33");
     });
   }
@@ -139,11 +139,13 @@ class _GamePanelState extends State<GamePanel> {
                                     if(value.isGameReady==false){
                                       ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
 
-                                    }else value.UpdateGame(index);
+                                    }else {
+                                      value.UpdateGame(index);
+                                    }
 
 
                                   },
-                                  child: GameItem(value.game_peices[index])),
+                                  child: GameItem(value.game_peices[index],index)),
                             ),
 
                           );
