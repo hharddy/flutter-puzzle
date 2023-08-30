@@ -33,12 +33,7 @@ class _LargeHomePageState extends State<LargeHomePage> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Container(width: 100,height: 50,
-          //
-          // child: SvgPicture.asset(
-          //     '/icon/controller.svg',
-          //     semanticsLabel: 'A red up arrow'
-          // ),),
+
           Container(
             height: double.infinity,
             //height: 200,

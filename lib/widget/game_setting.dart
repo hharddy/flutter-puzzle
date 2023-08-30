@@ -26,7 +26,7 @@ class GameSetting extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
           padding: EdgeInsets.symmetric(horizontal: 20,vertical: 15),
           
-          height: 420,
+          height: 450,
           width: MediaQuery.of(context).size.width*0.30,
           decoration: BoxDecoration(
             color: Palette.setting_panel,
@@ -116,7 +116,7 @@ class GameSetting extends StatelessWidget {
                     )
                   ]
                 ),
-                child:NumberInput(icon_path: '/icon/bomb3.png',textEditingController: bombs_controller),
+                child:NumberInput(icon_path: '/icon/bomb2.png',textEditingController: bombs_controller,is_bomb: true),
               ),
 
               /*

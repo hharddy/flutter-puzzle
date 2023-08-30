@@ -3,6 +3,6 @@ class ConstString{
   static String sum_is_greater = " There are only 24 cells";
   static String controller_is_empty = " Gem or Bomb count is empty";
   static String loser_text = " You are a LooooooSer :D";
-  static String winner_text = " You are winner, so what?";
+  static String winner_text = " You are winner?";
   static String finished_game_desc = " The game is over, Do you want play again?";
 }

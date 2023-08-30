@@ -7,9 +7,10 @@ import '../constant/color/palette.dart';
 class NumberInput extends StatelessWidget {
   TextEditingController? textEditingController;
   String? icon_path;
+  bool? is_bomb;
 
 
-  NumberInput({this.textEditingController, this.icon_path});
+  NumberInput({this.textEditingController, this.icon_path,this.is_bomb});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,10 @@ class NumberInput extends StatelessWidget {
         children: [
           Container(
 
-            child: Image.asset(icon_path!,width: 22,height: 22,),
+            child: Image.asset(icon_path!,
+              width: is_bomb==true?25:22,
+              height: is_bomb==true?25:22,
+              fit: BoxFit.fill,),
           ),
           SizedBox(width: 10,),
           Expanded(
