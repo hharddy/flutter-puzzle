@@ -6,6 +6,7 @@ import '../../entity/main_menu_model.dart';
 import '../../menu_item.dart';
 import '../../util/menu_list.dart';
 import '../../widget/game_setting.dart';
+import '../../widget/game_stats.dart';
 class LargeHomePage extends StatefulWidget {
   const LargeHomePage({Key? key}) : super(key: key);
 
@@ -47,8 +48,24 @@ class _LargeHomePageState extends State<LargeHomePage> {
               },
             ),
           ),
-          GameSetting(),
-          Expanded(child: GamePanel())
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                GameSetting(),
+                Container(
+                    width: MediaQuery.of(context).size.width*0.45,
+                    alignment: Alignment.center,
+                    child: GamePanel())
+              ],),
+
+              GameStats()
+              
+            ],
+          )
 
         ],
       ),

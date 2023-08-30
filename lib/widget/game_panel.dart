@@ -46,15 +46,7 @@ class _GamePanelState extends State<GamePanel> {
   void  initStates() {
 
     print("Did change method call");
-   // game_setting=[1,2,3,4];
-   // game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
-   //  Future.delayed(Duration.zero, (){
-   //    print("init");
-   //    PuzzleProvider puzzleProvider = Provider.of<PuzzleProvider>(context,listen: false);
-   //    print("init2");
-   //
-   //    print("init33");
-   //  });
+
   }
   @override
   Widget build(BuildContext context) {
@@ -102,7 +94,8 @@ class _GamePanelState extends State<GamePanel> {
             margin: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
             height: 400,
             child: Row(
-              //mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
 
                 /*
@@ -128,43 +121,48 @@ class _GamePanelState extends State<GamePanel> {
                  */
                 Expanded(
                   child: Container(
+                //    color: Colors.red,
+                    alignment: Alignment.bottomCenter,
+                    child: Center(
+                        //alignment: Alignment.bottomCenter,
+                      child: ListView.builder(
+                        itemCount: (value.game_peices.length + 3) ~/ 4, // Calculate the number of rows needed
+                        itemBuilder: (context, rowIndex) {
+                          int startingIndex = rowIndex * 4;
+                          int endingIndex = startingIndex + 3;
+                          endingIndex = endingIndex < value.game_peices.length ? endingIndex : value.game_peices.length - 1;
 
-                    child: ListView.builder(
-                      itemCount: (value.game_peices.length + 3) ~/ 4, // Calculate the number of rows needed
-                      itemBuilder: (context, rowIndex) {
-                        int startingIndex = rowIndex * 4;
-                        int endingIndex = startingIndex + 3;
-                        endingIndex = endingIndex < value.game_peices.length ? endingIndex : value.game_peices.length - 1;
-
-                        List<Widget> rowItems = [];
-                        for (int index = startingIndex; index <= endingIndex; index++) {
-                          rowItems.add(
-
-                            //    padding: EdgeInsets.all(8.0), // Add padding between items
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: InkWell(
-                                  onTap: () {
-                                    if(value.isGameReady==false){
-                                      ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
-
-                                    }else {
-
-                                      value.UpdateGame(index);
-                                    }
+                          List<Widget> rowItems = [];
+                          for (int index = startingIndex; index <= endingIndex; index++) {
+                            rowItems.add(
 
 
-                                  },
-                                  child: GameItem(value.game_peices[index],index)),
-                            ),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: InkWell(
+                                    onTap: () {
+                                      if(value.isGameReady==false){
+                                        ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
 
-                          );
-                        }
+                                      }else {
 
-                        return Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: rowItems);
-                      },
+                                        value.UpdateGame(index);
+                                      }
+
+
+                                    },
+                                    child: GameItem(value.game_peices[index],index)),
+                              ),
+
+                            );
+                          }
+
+                          return Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: rowItems);
+                        },
+                      ),
                     ),
                   ),
                 ),

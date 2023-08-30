@@ -35,8 +35,8 @@ class GameItem extends StatelessWidget {
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: 8),
 
-      height: 55,
-      width: 55,
+      height: MediaQuery.of(context).size.height*0.081,
+      width: MediaQuery.of(context).size.height*0.081,
 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(main_radius),

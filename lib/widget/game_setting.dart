@@ -155,7 +155,7 @@ class GameSetting extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20,),
-        Container(height: 70,color: Colors.green,width: 50,),
+
       ],
     );
   }
