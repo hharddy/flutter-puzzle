@@ -18,15 +18,15 @@ class GameItem extends StatelessWidget {
     if(gameModel.choosed==true){
         return  () {
         switch(gameModel.pieces!){
-          case PIECES.NOTHING: return Image.asset('/icon/bomb3.png',fit: BoxFit.fill,);
+          case PIECES.NOTHING: return Image.asset('/icon/empty.png',fit: BoxFit.fill,);
           case PIECES.INIT: return Image.asset('/icon/question.png',fit: BoxFit.fill,);
           case PIECES.BOMB: return Image.asset('/icon/bomb2.png',fit: BoxFit.fill,);
           case PIECES.GEM: return Image.asset('/icon/gem.png',fit: BoxFit.fill,);
         }
       }();
     }else{
-    //  return Image.asset('/icon/question.png',fit: BoxFit.fill,);
-      return Text('$index',textAlign: TextAlign.center,);
+      return Image.asset('/icon/question.png',fit: BoxFit.fill,);
+     // return Text('$index',textAlign: TextAlign.center,);
     }
   }
   @override

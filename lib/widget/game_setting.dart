@@ -7,12 +7,16 @@ import 'package:provider/provider.dart';
 
 import '../constant/string/const_string.dart';
 import '../provider/puzzle_provider.dart';
-import '../util/snack_bar.dart';
+import '../util/alert/snack_bar.dart';
 class GameSetting extends StatelessWidget {
 
 
   TextEditingController gems_controller = TextEditingController();
   TextEditingController bombs_controller = TextEditingController();
+  GameSetting(){
+    gems_controller.text = '3';
+    bombs_controller.text = '3';
+  }
   @override
   Widget build(BuildContext context) {
     return Column(

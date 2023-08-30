@@ -4,12 +4,13 @@ import 'package:flutter_puzzle/constant/number/radius_numbers.dart';
 import 'package:flutter_puzzle/entity/game_model.dart';
 import 'package:flutter_puzzle/item/game_item.dart';
 import 'package:flutter_puzzle/provider/puzzle_provider.dart';
+import 'package:flutter_puzzle/util/alert/show_dialog.dart';
 import 'package:provider/provider.dart';
 
 import '../constant/string/const_string.dart';
 import '../util/puzzle_data.dart';
 import '../util/random_numbers.dart';
-import '../util/snack_bar.dart';
+import '../util/alert/snack_bar.dart';
 
 class GamePanel extends StatefulWidget {
   const GamePanel({Key? key}) : super(key: key);
@@ -31,6 +32,15 @@ class _GamePanelState extends State<GamePanel> {
     // game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
 
     initStates();
+    PuzzleProvider  myNotifier = context.read<PuzzleProvider>(); // Access MyNotifier using Provider
+
+    myNotifier.addListener(() {
+      print("Listener");
+      //if(myNotifier.win_or_lose.isNotEmpty){
+        DialogHelper.showMyDialog(context,'myNotifier.win_or_lose');
+      //  DialogHelper.showMyDialog(context,myNotifier.win_or_lose);
+      //}
+    });
   }
   //@override
   void  initStates() {
@@ -38,28 +48,21 @@ class _GamePanelState extends State<GamePanel> {
     print("Did change method call");
    // game_setting=[1,2,3,4];
    // game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
-    Future.delayed(Duration.zero, (){
-      print("init");
-      PuzzleProvider puzzleProvider = Provider.of<PuzzleProvider>(context,listen: false);
-      print("init2");
-      //puzzleProvider.UpdateGame(1, PIECES.GEM);
-      // for(int i=0;i<game_setting.length;i++){
-      //   if(i>1){
-      //     puzzleProvider.SetGamePieces(game_setting[i], PIECES.GEM);
-      //     print("Item $i Gem");
-      //   }else{
-      //     puzzleProvider.SetGamePieces(game_setting[i], PIECES.BOMB);
-      //     print("Item $i Bomb");
-      //
-      //   }
-      // }
-      print("init33");
-    });
+   //  Future.delayed(Duration.zero, (){
+   //    print("init");
+   //    PuzzleProvider puzzleProvider = Provider.of<PuzzleProvider>(context,listen: false);
+   //    print("init2");
+   //
+   //    print("init33");
+   //  });
   }
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        /*
+        background image
+         */
         Container(
           margin: EdgeInsets.only(right: 20, top: 15),
           height: _height,
@@ -81,7 +84,13 @@ class _GamePanelState extends State<GamePanel> {
               )
           ),
         ),
-        Consumer<PuzzleProvider>(builder: (context, value, child) => Container(
+
+        /*
+        game board
+         */
+        Consumer<PuzzleProvider>(builder: (context, value, child) {
+
+          return Container(
           margin: EdgeInsets.only(right: 20, top: 15),
           height: _height,
           width: MediaQuery.of(context).size.width,
@@ -110,7 +119,7 @@ class _GamePanelState extends State<GamePanel> {
                         child: Image.asset('/icon/bomb2.png',fit: BoxFit.fill,),
                       ),
                       SizedBox(height: 10,),
-                      Text("2",style: TextStyle(color: Colors.white,fontSize: 15),),
+                      Text("${value.founded_bomb}",style: TextStyle(color: Colors.white,fontSize: 15),),
                     ],
                   ),
                 ),
@@ -140,6 +149,7 @@ class _GamePanelState extends State<GamePanel> {
                                       ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
 
                                     }else {
+
                                       value.UpdateGame(index);
                                     }
 
@@ -173,14 +183,15 @@ class _GamePanelState extends State<GamePanel> {
                         child: Image.asset('/icon/gem.png',fit: BoxFit.fill,),
                       ),
                       SizedBox(height: 10,),
-                      Text("2",style: TextStyle(color: Colors.white,fontSize: 15),),
+                      Text("${value.founded_gem}",style: TextStyle(color: Colors.white,fontSize: 15),),
                     ],
                   ),
                 ),
               ],
             ),
           ),
-        ),)
+        );
+        },)
       ],
     );
   }

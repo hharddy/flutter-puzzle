@@ -12,6 +12,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+// final  GlobalKey<NavigatorState> dialogKey = GlobalKey<NavigatorState>();
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
   }
 }
 class MyHomePage extends StatefulWidget {
+
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -38,9 +41,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     // key: dialogKey,
       backgroundColor: Palette.primary,
       body: LayoutBuilder(builder: (context, constraints) {
 
