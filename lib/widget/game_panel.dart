@@ -36,8 +36,8 @@ class _GamePanelState extends State<GamePanel> {
   void  initStates() {
 
     print("Did change method call");
-
-    game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
+    game_setting=[1,2,3,4];
+   // game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
     Future.delayed(Duration.zero, (){
       print("init");
       PuzzleProvider puzzleProvider = Provider.of<PuzzleProvider>(context,listen: false);

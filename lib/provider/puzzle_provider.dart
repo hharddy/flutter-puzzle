@@ -10,24 +10,24 @@ class PuzzleProvider extends ChangeNotifier{
   PuzzleProvider(this.game_peices);
 
   void ChangeGameStatu(bool status, {bomb_count,  gem_count}){
-    isGameReady = status;
+   isGameReady = status;
 
-   //
-   // var gems_list = RandomNumbers.generateUniqueRandomNumbers(gem_count,0,15);
-   // var bomb_list = RandomNumbers.generateUniqueRandomNumbers(bomb_count,0,15,another_list: gems_list);
-   // print("gem: ${gem_count.toString()}");
-   // print("bomb_list: ${bomb_list}");
-   //  notifyListeners();
+
+   var gems_list = RandomNumbers.generateUniqueRandomNumbers(gem_count,0,24);
+   var bomb_list = RandomNumbers.generateUniqueRandomNumbers(bomb_count,0,24,another_list: gems_list);
+   print("gem: ${gems_list}");
+   print("bomb_list: ${bomb_list}");
+    notifyListeners();
   }
 
   void SetGamePieces(var index,PIECES pieces){
-    //print("Update game $index");
+    print("Update game $index");
     game_peices[index].pieces = pieces;
-    notifyListeners();
+   notifyListeners();
   }
   void UpdateGame(var index){
     print("Update game $index");
     game_peices[index].choosed = true;
-    notifyListeners();
+   notifyListeners();
   }
 }
