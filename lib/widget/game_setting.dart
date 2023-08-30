@@ -130,11 +130,22 @@ class GameSetting extends StatelessWidget {
                   ),
 
                   onPressed: () {
-                    if(bombs_controller.text.isNotEmpty && gems_controller.text.isNotEmpty){
-                      Provider.of<PuzzleProvider>(context,listen: false).ChangeGameStatu(true,
-                          bomb_count: int.parse(bombs_controller.text),
-                          gem_count: int.parse(gems_controller.text)
-                      );
+                    if(bombs_controller.text.isNotEmpty && gems_controller.text.isNotEmpty
+                    && bombs_controller.text!='0' && gems_controller.text!='0'
+
+                    ){
+                      var gems_count = int.parse(gems_controller.text);
+                      var bombs_count = int.parse(bombs_controller.text);
+                      if(bombs_count+gems_count >24){
+                        ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.sum_is_greater));
+
+                      }else{
+                        Provider.of<PuzzleProvider>(context,listen: false).ChangeGameStatus(true,
+                            bomb_count: int.parse(bombs_controller.text),
+                            gem_count: int.parse(gems_controller.text)
+                        );
+                      }
+
                     }else{
                       ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.controller_is_empty));
                     }

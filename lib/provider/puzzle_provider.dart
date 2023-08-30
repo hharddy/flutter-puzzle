@@ -20,7 +20,7 @@ class PuzzleProvider extends ChangeNotifier{
 
   PuzzleProvider(this.game_peices);
 
-  void ChangeGameStatu(bool status, {bomb_count,  gem_count}){
+  void ChangeGameStatus(bool status, {bomb_count,  gem_count}){
    isGameReady = status;
   all_bomb = bomb_count;
   all_gem = gem_count;
@@ -33,7 +33,13 @@ class PuzzleProvider extends ChangeNotifier{
      if(gems_list.contains(i))   game_peices[i].pieces = PIECES.GEM;
      else if(bomb_list.contains(i)) game_peices[i].pieces = PIECES.BOMB;
      else game_peices[i].pieces = PIECES.NOTHING;
+
+     if(win_or_lose.length>3) game_peices[i].choosed=false;
    }
+    win_or_lose  = '';
+    founded_gem = 0;
+    founded_bomb = 0;
+    // choosed_items = 0;
 
 
    print("gem: ${gems_list}");
@@ -68,17 +74,12 @@ class PuzzleProvider extends ChangeNotifier{
     if(founded_gem==all_gem){
       win_or_lose = ConstString.winner_text;
       isGameReady = false;
-    }else if(founded_bomb==all_bomb || choosed_items==25){
+    }else if(founded_bomb==all_bomb ){
       win_or_lose = ConstString.loser_text;
       isGameReady = false;
     }
 
-    // if(founded_gem==all_gem || founded_bomb==all_bomb || choosed_items==25) {
-    //   // game finished
-    //
-    //   isGameReady = false;
-    //   //finished = true;
-    // }
+
 
     notifyListeners();
   }

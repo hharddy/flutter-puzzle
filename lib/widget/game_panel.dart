@@ -36,10 +36,10 @@ class _GamePanelState extends State<GamePanel> {
 
     myNotifier.addListener(() {
       print("Listener");
-      //if(myNotifier.win_or_lose.isNotEmpty){
-        DialogHelper.showMyDialog(context,'myNotifier.win_or_lose');
-      //  DialogHelper.showMyDialog(context,myNotifier.win_or_lose);
-      //}
+      if(myNotifier.win_or_lose.isNotEmpty){
+      //   DialogHelper.showMyDialog(context,'myNotifier.win_or_lose');
+        DialogHelper.showMyDialog(context,myNotifier.win_or_lose);
+      }
     });
   }
   //@override
