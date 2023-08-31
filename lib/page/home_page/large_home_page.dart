@@ -37,7 +37,6 @@ class _LargeHomePageState extends State<LargeHomePage> {
 
           Container(
             height: double.infinity,
-            //height: 200,
             width: MediaQuery.of(context).size.width*0.15,
             padding: EdgeInsets.symmetric(horizontal: 7,vertical: 15),
             color: Palette.secondary,

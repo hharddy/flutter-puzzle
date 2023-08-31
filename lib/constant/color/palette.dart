@@ -8,4 +8,5 @@ class Palette{
   static Color number_bg = Color(0xff39416d);
   static Color button_blue = Color(0xff3656ff);
   static Color grey_text = Color(0xffaeb1bf);
+  static Color stat_title = Color(0xff484f77);
 }

@@ -26,7 +26,6 @@ class GameItem extends StatelessWidget {
       }();
     }else{
       return Image.asset('/icon/question.png',fit: BoxFit.fill,);
-     // return Text('$index',textAlign: TextAlign.center,);
     }
   }
   @override

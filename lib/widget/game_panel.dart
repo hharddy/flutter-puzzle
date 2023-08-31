@@ -124,7 +124,6 @@ class _GamePanelState extends State<GamePanel> {
                 //    color: Colors.red,
                     alignment: Alignment.bottomCenter,
                     child: Center(
-                        //alignment: Alignment.bottomCenter,
                       child: ListView.builder(
                         itemCount: (value.game_peices.length + 3) ~/ 4, // Calculate the number of rows needed
                         itemBuilder: (context, rowIndex) {

@@ -21,8 +21,6 @@ class GameStats extends StatelessWidget {
       width: MediaQuery.of(context).size.width*0.8,
     margin: EdgeInsets.only(top: 30),
     padding: EdgeInsets.only(left: 30),
-    //  height: 40,
-     // color: Colors.green,
       child:  Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -31,9 +29,9 @@ class GameStats extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.only(left: 10,top: 4),
-                  margin: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
-                  child: Text('Game',style: TxtStyle.stat_title,),),
+                  padding: EdgeInsets.only(left: 15,top: 4),
+                  margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
+                  child: Text('User',style: TxtStyle.stat_title,),),
               ),
               Expanded(
                 child: Container(
@@ -45,13 +43,13 @@ class GameStats extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
                   margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
-                  child: Text('Game',style: TxtStyle.stat_title),),
+                  child: Text('Score',style: TxtStyle.stat_title),),
               ),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
                   margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
-                  child: Text('Game',style: TxtStyle.stat_title),),
+                  child: Text('Multiplier',style: TxtStyle.stat_title),),
               ),
 
             ],

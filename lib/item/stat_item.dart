@@ -14,16 +14,41 @@ class StatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10,top: 7,bottom: 7),
-      margin: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+      padding: EdgeInsets.symmetric(vertical: 9),
+      margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(main_radius),
-        color: Palette.secondary
+        color: Palette.secondary,
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(2,2),
+                blurRadius: 3,
+                spreadRadius: 0,
+                color: Palette.secondary.withOpacity(0.4)
+            )
+          ]
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
        children: [
-         Expanded(child: Text(statModel.game!,style: TxtStyle.user_stat_item)),
+         Expanded(
+             child: Container(
+                 padding: EdgeInsets.only(left: 15,),
+                 child: Row(
+                   children: [
+                     Container(
+                       margin: EdgeInsets.only(right: 5),
+                       width: 27,
+                       height: 27,
+                       child: Image.asset('/icon/person.png',fit: BoxFit.cover,),
+                     ),
+                     Text(statModel.game!,style: TxtStyle.user_stat_item,),
+
+                   ],
+                 )
+             )
+         ),
+
          Expanded(child: Text(statModel.user!,style: TxtStyle.user_stat_item)),
          Expanded(child: Text(statModel.score!,style: TxtStyle.user_stat_item)),
          Expanded(child: Text(statModel.multiplier!,style: TxtStyle.user_stat_item)),

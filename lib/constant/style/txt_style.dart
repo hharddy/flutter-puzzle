@@ -9,5 +9,5 @@ class TxtStyle{
   static var game_finish_desc = TextStyle(fontSize: 15);
 
   static var user_stat_item = TextStyle(fontSize: 13,color: Palette.grey_text);
-  static var stat_title = TextStyle(fontSize: 13,color: Colors.black);
+  static var stat_title = TextStyle(fontSize: 13,color: Palette.stat_title,fontWeight: FontWeight.bold);
 }
