@@ -15,7 +15,7 @@ class StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 9),
-      margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
+      margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4,),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(main_radius),
         color: Palette.secondary,

@@ -56,7 +56,7 @@ class _GamePanelState extends State<GamePanel> {
         background image
          */
         Container(
-          margin: EdgeInsets.only(right: 20, top: 15),
+          margin: EdgeInsets.only(right: 20, top: 0),
           height: _height,
           width: MediaQuery.of(context).size.width,
           // color: Colors.green,
@@ -83,7 +83,7 @@ class _GamePanelState extends State<GamePanel> {
         Consumer<PuzzleProvider>(builder: (context, value, child) {
 
           return Container(
-          margin: EdgeInsets.only(right: 20, top: 15),
+          margin: EdgeInsets.only(right: 20, top: 0),
           height: _height,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
@@ -91,7 +91,7 @@ class _GamePanelState extends State<GamePanel> {
             color: Palette.primary.withOpacity(0.7),
           ),
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
+            margin: EdgeInsets.symmetric(horizontal: 5,vertical: 0),
             height: 400,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

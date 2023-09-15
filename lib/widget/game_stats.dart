@@ -3,6 +3,7 @@ import 'package:flutter_puzzle/item/stat_item.dart';
 
 import '../constant/style/txt_style.dart';
 import '../entity/stat_model.dart';
+import '../util/screen.dart';
 
 class GameStats extends StatelessWidget {
 
@@ -18,7 +19,7 @@ class GameStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width*0.8,
+      width:DeviceScreen.width<1093?MediaQuery.of(context).size.width*0.9:MediaQuery.of(context).size.width*0.8,
     margin: EdgeInsets.only(top: 30),
     padding: EdgeInsets.only(left: 30),
       child:  Column(

@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         child:  Container(
           height: double.infinity,
-          width: MediaQuery.of(context).size.width*0.15,
+          width: MediaQuery.of(context).size.width*0.8,
           padding: EdgeInsets.symmetric(horizontal: 7,vertical: 15),
           color: Palette.secondary,
           child: ListView.builder(
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         DeviceScreen.width = constraints.maxWidth;
         print(constraints.maxWidth.toString());
 
-        if(constraints.maxWidth>720) return LargeHomePage();
+        if(constraints.maxWidth>885) return LargeHomePage();
         else  return SmallHomePage();
       },),
     );

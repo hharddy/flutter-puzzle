@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../constant/color/palette.dart';
 import '../../entity/main_menu_model.dart';
 import '../../menu_item.dart';
+import '../../util/hamburger_icon.dart';
 import '../../util/menu_list.dart';
 import '../../util/screen.dart';
 import '../../widget/game_setting.dart';
@@ -37,10 +38,7 @@ class _LargeHomePageState extends State<LargeHomePage> {
         children: [
 
           Container(
-            child: DeviceScreen.width<1091? Container(
-              color: Colors.white,
-              child: Text('dddddd'),
-            )
+            child: DeviceScreen.width<1093? HumbergerIcon()
                 :
             Container(
               height: double.infinity,
@@ -66,18 +64,15 @@ class _LargeHomePageState extends State<LargeHomePage> {
                 GameSetting(),
                 Container(
                   color: Colors.red,
-                  //  height: 80,
-                  //  width: 560,
-                 //   width: MediaQuery.of(context).size.width*0.42,
-             //       width: MediaQuery.of(context).size.width*0.52,
-                    width:DeviceScreen.width<1091?MediaQuery.of(context).size.width*0.52:MediaQuery.of(context).size.width*0.42,
+
+                    width:DeviceScreen.width<1093?MediaQuery.of(context).size.width*0.52:MediaQuery.of(context).size.width*0.42,
                     alignment: Alignment.center,
                     child: GamePanel()
                 )
               ],),
 
               GameStats()
-              
+
             ],
           )
 
