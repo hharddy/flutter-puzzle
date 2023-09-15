@@ -5,6 +5,7 @@ import '../../constant/color/palette.dart';
 import '../../entity/main_menu_model.dart';
 import '../../menu_item.dart';
 import '../../util/menu_list.dart';
+import '../../util/screen.dart';
 import '../../widget/game_setting.dart';
 import '../../widget/game_stats.dart';
 class LargeHomePage extends StatefulWidget {
@@ -36,17 +37,25 @@ class _LargeHomePageState extends State<LargeHomePage> {
         children: [
 
           Container(
-            height: double.infinity,
-            width: MediaQuery.of(context).size.width*0.15,
-            padding: EdgeInsets.symmetric(horizontal: 7,vertical: 15),
-            color: Palette.secondary,
-            child: ListView.builder(
-              itemCount: menu_list.length,
-              itemBuilder: (context, index) {
-                return MenuItem(menu: menu_list[index],);
-              },
+            child: DeviceScreen.width<1091? Container(
+              color: Colors.white,
+              child: Text('dddddd'),
+            )
+                :
+            Container(
+              height: double.infinity,
+              width: MediaQuery.of(context).size.width*0.15,
+              padding: EdgeInsets.symmetric(horizontal: 7,vertical: 15),
+              color: Palette.secondary,
+              child: ListView.builder(
+                itemCount: menu_list.length,
+                itemBuilder: (context, index) {
+                  return MenuItem(menu: menu_list[index],);
+                },
+              ),
             ),
           ),
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -56,9 +65,15 @@ class _LargeHomePageState extends State<LargeHomePage> {
                 children: [
                 GameSetting(),
                 Container(
-                    width: MediaQuery.of(context).size.width*0.45,
+                  color: Colors.red,
+                  //  height: 80,
+                  //  width: 560,
+                 //   width: MediaQuery.of(context).size.width*0.42,
+             //       width: MediaQuery.of(context).size.width*0.52,
+                    width:DeviceScreen.width<1091?MediaQuery.of(context).size.width*0.52:MediaQuery.of(context).size.width*0.42,
                     alignment: Alignment.center,
-                    child: GamePanel())
+                    child: GamePanel()
+                )
               ],),
 
               GameStats()
@@ -71,3 +86,5 @@ class _LargeHomePageState extends State<LargeHomePage> {
     );
   }
 }
+
+

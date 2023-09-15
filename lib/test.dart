@@ -1,36 +1,30 @@
-import 'dart:math';
-
+// import 'dart:math';
+//
 void main() async{
-  List<int> another =await generateUniqueRandomNumbers(4, 0, 15,another_list: null);
-  List<int> uniqueRandomNumbers =await generateUniqueRandomNumbers(4, 0, 15,another_list: another);
-  print(another);
-  print(uniqueRandomNumbers);
-}
 
+  print("Start");
+//  var temp =await TestDelay('Async operation');
+  //var temp2 = TestNoram('Normal operation');
 
-Future<List<int>> generateUniqueRandomNumbers(int count, int min, int max,
-    {List<int>? another_list}) async {
-  if (count > max - min + 1) {
-    throw ArgumentError('Cannot generate $count unique numbers in the range $min to $max');
-  }
+   TestDelay('Async operation');
+  print(TestNoram('Normal operation'));
+  print("Finish");
 
-  List<int> result = [];
-  Random random = Random();
-
-  while (result.length < count) {
-    int randomNumber = random.nextInt(max - min + 1) + min;
-    if (!result.contains(randomNumber) && (another_list == null || !another_list.contains(randomNumber))) {
-      result.add(randomNumber);
-    }
-  }
-
-  return result;
 }
 
 
 
 
+String TestNoram(var data){
+  return data;
+}
 
+Future<void> TestDelay(var data) async{
+  Future.delayed(Duration(seconds: 2,),() {
+    return print(data);
+  },);
+  //return data;
+}
 
 
 

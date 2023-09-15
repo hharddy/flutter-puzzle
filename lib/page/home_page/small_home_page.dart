@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../util/public_key.dart';
 class SmallHomePage extends StatefulWidget {
   const SmallHomePage({Key? key}) : super(key: key);
 
@@ -9,6 +11,14 @@ class SmallHomePage extends StatefulWidget {
 class _SmallHomePageState extends State<SmallHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(child: InkWell(
+
+      onTap: (){
+        key.currentState!.openDrawer(); //<-- SEE HERE
+
+      },
+      child: Text("Open"),
+    ),
+    );
   }
 }
