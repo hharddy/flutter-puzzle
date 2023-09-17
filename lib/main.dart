@@ -1,8 +1,8 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_puzzle/page/home_page/large_home_page.dart';
 import 'package:flutter_puzzle/page/home_page/small_home_page.dart';
+import 'package:flutter_puzzle/provider/game_panel_provider.dart';
 import 'package:flutter_puzzle/provider/puzzle_provider.dart';
 import 'package:flutter_puzzle/util/menu_list.dart';
 import 'package:flutter_puzzle/util/public_key.dart';
@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => PuzzleProvider((Puzzle_data.game_peices)),)
+        ChangeNotifierProvider(create: (context) => PuzzleProvider((Puzzle_data.game_peices)),),
+        ChangeNotifierProvider(create: (context) => GamePanelProvider(),)
       ],
       child: MaterialApp(
 
@@ -65,7 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
       key: key,
 
       backgroundColor: Palette.primary,
-     // appBar: AppBar(),
+      appBar: DeviceScreen.width>885? null: AppBar(
+        backgroundColor: Palette.primary,
+      ),
       drawer: Drawer(
 
         child:  Container(
@@ -83,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: LayoutBuilder(builder: (context, constraints) {
         DeviceScreen.width = constraints.maxWidth;
+        DeviceScreen.height = constraints.maxHeight;
         print(constraints.maxWidth.toString());
 
         if(constraints.maxWidth>885) return LargeHomePage();

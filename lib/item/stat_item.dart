@@ -4,6 +4,7 @@ import 'package:flutter_puzzle/constant/number/radius_numbers.dart';
 import 'package:flutter_puzzle/entity/stat_model.dart';
 
 import '../constant/style/txt_style.dart';
+import '../util/screen.dart';
 
 class StatItem extends StatelessWidget {
  StatModel statModel;
@@ -40,16 +41,29 @@ class StatItem extends StatelessWidget {
                        margin: EdgeInsets.only(right: 5),
                        width: 27,
                        height: 27,
-                       child: Image.asset('/icon/person.png',fit: BoxFit.cover,),
+                       child: Image.asset('assets/icon/person.png',fit: BoxFit.cover,),
                      ),
-                     Text(statModel.game!,style: TxtStyle.user_stat_item,),
+                     Text(statModel.user!,style: TxtStyle.user_stat_item,),
 
                    ],
                  )
              )
          ),
 
-         Expanded(child: Text(statModel.user!,style: TxtStyle.user_stat_item)),
+     //    Expanded(child: Text(statModel.user!,style: TxtStyle.user_stat_item)),
+         Container(
+             child: DeviceScreen.width<885?Container()
+                 :
+             Expanded(
+
+                 child: Container(
+                   padding: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
+                   margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
+                   child: Text(statModel.game!,style: TxtStyle.stat_title),),
+
+             )
+
+         ),
          Expanded(child: Text(statModel.score!,style: TxtStyle.user_stat_item)),
          Expanded(child: Text(statModel.multiplier!,style: TxtStyle.user_stat_item)),
        ],

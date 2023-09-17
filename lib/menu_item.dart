@@ -45,18 +45,24 @@ class MenuItem extends StatelessWidget {
       children: SubMenu(),
       title:  Container(
 
-        child: Row(
-          children: [
+        child: InkWell(
+          onTap: () {
 
-          Container(height: 25,width: 25,
+          },
+          child:
+          Row(
+            children: [
 
-          child: SvgPicture.asset(
-              menu!.icon!,
-              semanticsLabel: 'A red up arrow'
-          ),),
-          SizedBox(width: 6,),
-          Text(menu!.title!,style: TextStyle(fontSize: 15,color: Colors.white)),
-          ],
+              Container(height: 25,width: 25,
+
+                child: SvgPicture.asset(
+                    menu!.icon!,
+                    semanticsLabel: 'A red up arrow'
+                ),),
+              SizedBox(width: 6,),
+              Text(menu!.title!,style: TextStyle(fontSize: 15,color: Colors.white)),
+            ],
+          ),
         )
 
       ),

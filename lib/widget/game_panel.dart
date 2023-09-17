@@ -31,7 +31,6 @@ class _GamePanelState extends State<GamePanel> {
     super.initState();
     // game_setting = RandomNumbers.generateUniqueRandomNumbers(4,0,15);
 
-    initStates();
     PuzzleProvider  myNotifier = context.read<PuzzleProvider>(); // Access MyNotifier using Provider
 
     myNotifier.addListener(() {
@@ -42,12 +41,7 @@ class _GamePanelState extends State<GamePanel> {
       }
     });
   }
-  //@override
-  void  initStates() {
 
-    print("Did change method call");
-
-  }
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -72,7 +66,7 @@ class _GamePanelState extends State<GamePanel> {
       ],
               image: DecorationImage(
                   fit: BoxFit.fitHeight,
-                  image: AssetImage('/image/bg1.jpg',)
+                  image: AssetImage('assets/image/bg1.jpg',)
               )
           ),
         ),
@@ -109,7 +103,7 @@ class _GamePanelState extends State<GamePanel> {
                       Container(
                         width: 35,
                         height: 35,
-                        child: Image.asset('/icon/bomb2.png',fit: BoxFit.fill,),
+                        child: Image.asset('assets/icon/bomb2.png',fit: BoxFit.fill,),
                       ),
                       SizedBox(height: 10,),
                       Text("${value.founded_bomb}",style: TextStyle(color: Colors.white,fontSize: 15),),
@@ -177,7 +171,7 @@ class _GamePanelState extends State<GamePanel> {
                       Container(
                         width: 35,
                         height: 35,
-                        child: Image.asset('/icon/gem.png',fit: BoxFit.fill,),
+                        child: Image.asset('assets/icon/gem.png',fit: BoxFit.fill,),
                       ),
                       SizedBox(height: 10,),
                       Text("${value.founded_gem}",style: TextStyle(color: Colors.white,fontSize: 15),),

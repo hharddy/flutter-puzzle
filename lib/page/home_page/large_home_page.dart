@@ -38,7 +38,7 @@ class _LargeHomePageState extends State<LargeHomePage> {
         children: [
 
           Container(
-            child: DeviceScreen.width<1093? HumbergerIcon()
+            child: DeviceScreen.width<1110? HumbergerIcon()
                 :
             Container(
               height: double.infinity,
@@ -63,15 +63,15 @@ class _LargeHomePageState extends State<LargeHomePage> {
                 children: [
                 GameSetting(),
                 Container(
-                  color: Colors.red,
+                  //color: Colors.red,
 
-                    width:DeviceScreen.width<1093?MediaQuery.of(context).size.width*0.52:MediaQuery.of(context).size.width*0.42,
+                    width:DeviceScreen.width<1115?MediaQuery.of(context).size.width*0.52:MediaQuery.of(context).size.width*0.44,
                     alignment: Alignment.center,
                     child: GamePanel()
                 )
               ],),
-
               GameStats()
+            //  Expanded(child: GameStats())
 
             ],
           )

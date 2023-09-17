@@ -39,31 +39,14 @@ class PuzzleProvider extends ChangeNotifier{
     win_or_lose  = '';
     founded_gem = 0;
     founded_bomb = 0;
-    // choosed_items = 0;
 
 
-   print("gem: ${gems_list}");
-   print("bomb_list: ${bomb_list}");
+
     notifyListeners();
   }
 
-  // void AddFoundedGem(){
-  //   founded_gem++;
-  //
-  //   notifyListeners();
-  // }
-  // void AddFoundedBomb(){
-  //   founded_bomb++;
-  //   notifyListeners();
-  // }
 
-  // void SetGamePieces(var index,PIECES pieces){
-  //   print("Update game $index");
-  //   game_peices[index].pieces = pieces;
-  //  notifyListeners();
-  // }
   void UpdateGame(var index){
-    //DialogHelper.showMyDialog(dialogKey);
     print("Update game $index ${game_peices[index].pieces}");
     game_peices[index].choosed = true;
     choosed_items++;

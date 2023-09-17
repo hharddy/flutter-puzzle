@@ -19,9 +19,11 @@ class GameStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:DeviceScreen.width<1093?MediaQuery.of(context).size.width*0.9:MediaQuery.of(context).size.width*0.8,
-    margin: EdgeInsets.only(top: 30),
-    padding: EdgeInsets.only(left: 30),
+     // color: Colors.red,
+      //width:300,
+      width:DeviceScreen.width<1115?MediaQuery.of(context).size.width*0.92:MediaQuery.of(context).size.width*0.8,
+    margin: EdgeInsets.only(top: DeviceScreen.width<885?3:30),
+    padding: EdgeInsets.only(left: DeviceScreen.width<885?3:30),
       child:  Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -34,12 +36,17 @@ class GameStats extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
                   child: Text('User',style: TxtStyle.stat_title,),),
               ),
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
-                  margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
-                  child: Text('Game',style: TxtStyle.stat_title),),
-              ),
+             Container(
+               child: DeviceScreen.width<885?Container()
+                   :
+               Expanded(
+                 child: Container(
+                   padding: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
+                   margin: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
+                   child: Text('Game',style: TxtStyle.stat_title),),
+               )
+
+             ),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 0,vertical: 4),
@@ -68,3 +75,6 @@ class GameStats extends StatelessWidget {
     );
   }
 }
+
+
+
