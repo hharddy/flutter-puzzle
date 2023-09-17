@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 class GamePanelProvider extends ChangeNotifier{
 
-  bool ShowGamePanel = false;
+  bool ShowGamePanel = true;
 
   void ChangeGamePanel(){
     if (ShowGamePanel) ShowGamePanel=false;

@@ -18,14 +18,14 @@ class GameItem extends StatelessWidget {
     if(gameModel.choosed==true){
         return  () {
         switch(gameModel.pieces!){
-          case PIECES.NOTHING: return Image.asset('/icon/empty.png',fit: BoxFit.fill,);
-          case PIECES.INIT: return Image.asset('/icon/question.png',fit: BoxFit.fill,);
-          case PIECES.BOMB: return Image.asset('/icon/bomb2.png',fit: BoxFit.fill,);
-          case PIECES.GEM: return Image.asset('/icon/gem.png',fit: BoxFit.fill,);
+          case PIECES.NOTHING: return Image.asset('assets/icon/empty.png',fit: BoxFit.fill,);
+          case PIECES.INIT: return Image.asset('assets/icon/question.png',fit: BoxFit.fill,);
+          case PIECES.BOMB: return Image.asset('assets/icon/bomb2.png',fit: BoxFit.fill,);
+          case PIECES.GEM: return Image.asset('assets/icon/gem.png',fit: BoxFit.fill,);
         }
       }();
     }else{
-      return Image.asset('/icon/question.png',fit: BoxFit.fill,);
+      return Image.asset('assets/icon/question.png',fit: BoxFit.fill,);
     }
   }
   @override
@@ -49,7 +49,8 @@ class GameItem extends StatelessWidget {
             )
           ]
       ),
-      child: IsSelected(),
+     // child: IsSelected(),
+      child: Text(index.toString()),
 
     );
   }

@@ -7,10 +7,10 @@ import 'package:flutter_puzzle/provider/puzzle_provider.dart';
 import 'package:flutter_puzzle/util/alert/show_dialog.dart';
 import 'package:provider/provider.dart';
 
-import '../constant/string/const_string.dart';
-import '../util/puzzle_data.dart';
-import '../util/random_numbers.dart';
-import '../util/alert/snack_bar.dart';
+import '../../constant/string/const_string.dart';
+import '../../util/puzzle_data.dart';
+import '../../util/random_numbers.dart';
+import '../../util/alert/snack_bar.dart';
 
 class GamePanel extends StatefulWidget {
   const GamePanel({Key? key}) : super(key: key);

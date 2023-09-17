@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_puzzle/constant/color/palette.dart';
 import 'package:flutter_puzzle/constant/number/radius_numbers.dart';
+import 'package:flutter_puzzle/provider/game_panel_provider.dart';
 import 'package:flutter_puzzle/widget/number_input.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_puzzle/util/public_key.dart';
@@ -152,6 +153,7 @@ class _GameSettingState extends State<GameSetting> {
                             bomb_count: int.parse(bombs_controller.text),
                             gem_count: int.parse(gems_controller.text)
                         );
+                        Provider.of<GamePanelProvider>(context,listen: false).ChangeGamePanel();
                       }
 
                     }else{
