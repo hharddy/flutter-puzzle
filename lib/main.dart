@@ -68,6 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Palette.primary,
       appBar: DeviceScreen.width>885? null: AppBar(
         backgroundColor: Palette.primary,
+        actions: [
+          IconButton(onPressed: (){
+            context.read<GamePanelProvider>().ChangeGamePanel();
+          },
+              icon: Icon(Icons.restart_alt_rounded))
+        ],
       ),
       drawer: Drawer(
 

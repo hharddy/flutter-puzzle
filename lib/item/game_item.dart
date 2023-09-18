@@ -5,7 +5,7 @@ import 'package:flutter_puzzle/entity/game_model.dart';
 
 class GameItem extends StatelessWidget {
 
-  GameModel gameModel;
+  GameModel? gameModel;
   int index;
 
 
@@ -15,9 +15,9 @@ class GameItem extends StatelessWidget {
   }
 
   Widget IsSelected(){
-    if(gameModel.choosed==true){
+    if(gameModel!.choosed==true){
         return  () {
-        switch(gameModel.pieces!){
+        switch(gameModel!.pieces!){
           case PIECES.NOTHING: return Image.asset('assets/icon/empty.png',fit: BoxFit.fill,);
           case PIECES.INIT: return Image.asset('assets/icon/question.png',fit: BoxFit.fill,);
           case PIECES.BOMB: return Image.asset('assets/icon/bomb2.png',fit: BoxFit.fill,);
@@ -49,8 +49,8 @@ class GameItem extends StatelessWidget {
             )
           ]
       ),
-     // child: IsSelected(),
-      child: Text(index.toString()),
+     child: IsSelected(),
+     // child: Text(index.toString()),
 
     );
   }

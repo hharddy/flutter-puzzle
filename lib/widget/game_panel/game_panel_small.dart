@@ -35,8 +35,11 @@ class _GamePanelSmallState extends State<GamePanelSmall> {
 
     myNotifier.addListener(() {
       print("Listener");
-      if(myNotifier.win_or_lose.isNotEmpty){
-        DialogHelper.showMyDialog(context,myNotifier.win_or_lose);
+      if (myNotifier.win_or_lose.isNotEmpty) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
+          // Execute your code after the frame is rendered
+          DialogHelper.showMyDialog(context, myNotifier.win_or_lose);
+        });
       }
     });
   }
@@ -94,43 +97,35 @@ class _GamePanelSmallState extends State<GamePanelSmall> {
 
                           alignment: Alignment.center,
                           child: Center(
-                            child: ListView.builder(
-                              itemCount: 6, // Calculate the number of rows needed
-                              itemBuilder: (context, rowIndex) {
+                            child: CustomScrollView(
+                              slivers: <Widget>[
 
-                                List<Widget> rowItems = [];
-                                for (int index = 0; index <= 2; index++) {
-                                  rowItems.add(
-
-                                    Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                SliverGrid.count(
+                                  crossAxisCount: 4, // Number of columns
+                                  crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                                childAspectRatio: 1.2,
+                                children:  value.game_peices.map((item) {
+                                  return Container(
+                                      height: 20,
                                       child: InkWell(
-                                          onTap: () {
-                                            if(value.isGameReady==false){
-                                              ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
+                                          onTap: (){
+                                              if(value.isGameReady==false){
+                                                ScaffoldMessenger.of(context).showSnackBar(errorSnackBar(error: ConstString.game_not_ready));
 
-                                            }else {
-
-                                              value.UpdateGame(_index);
-                                            }
-
-
+                                              }else {
+                                                value.UpdateGame(item.id!-1);
+                                              }
                                           },
-                                          child: GameItem(value.game_peices[_index],_index)),
-                                    ),
-
-                                  );
-                                  _index++;
-                                }
-
-                                return Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: rowItems);
-                              },
+                                          child: GameItem(item,item.id!-1)));
+                                }).toList(),
+                                )
+                              ],
                             ),
                           ),
-                        ),
+
+                          ),
+
 
 
 
@@ -193,4 +188,5 @@ class _GamePanelSmallState extends State<GamePanelSmall> {
       ],
     );
   }
+
 }
