@@ -91,9 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: LayoutBuilder(builder: (context, constraints) {
-        DeviceScreen.width = constraints.maxWidth;
-        DeviceScreen.height = constraints.maxHeight;
-        print(constraints.maxWidth.toString());
+        WidgetsBinding.instance.addPostFrameCallback((_){
+          setState(() {
+            DeviceScreen.width = constraints.maxWidth;
+            DeviceScreen.height = constraints.maxHeight;
+
+          });
+
+          print(constraints.maxWidth.toString());
+
+        });
 
         if(constraints.maxWidth>885) return LargeHomePage();
         else  return SmallHomePage();
@@ -103,16 +110,3 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 
-
-class TestPage extends StatelessWidget {
-  const TestPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("dshjfkdskjdskldsjfkjldsfkljds"),
-      ),
-    );
-  }
-}
